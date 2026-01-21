@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:libraryflutter1/app/views/login_page.dart';
 
 // ✅ الصفحة الرئيسية لعرض الكتب
 
@@ -117,7 +118,7 @@ class BookStoreHomePage extends StatelessWidget {
             icon: Icon(Icons.logout),
             onPressed: () async {
               await FirebaseAuth.instance.signOut();
-              Get.offAllNamed('/login');
+              Get.To(LoginPage());
             },
           ),
         ],
@@ -564,4 +565,8 @@ class BookStoreHomePage extends StatelessWidget {
       ),
     );
   }
+}
+
+extension on GetInterface {
+  void To(LoginPage loginPage) {}
 }
